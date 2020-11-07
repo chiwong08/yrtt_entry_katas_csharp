@@ -10,7 +10,18 @@ namespace TechReturners.Tasks
     {
         public static int Past(int h, int m, int s)
         {
-            throw new NotImplementedException();
+            int totMS = 0;
+
+            // so each hour = 3600 seconds =  3600000 milliseconds
+            // each minute = 60 seconds = 60000 milliseconds
+            // each second = 1000 milliseconds
+            
+            totMS += h*3600000;
+            totMS += m*60000;
+            totMS += s*1000;
+
+            return totMS;
+            // throw new NotImplementedException();
         }
     }
 }
