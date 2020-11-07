@@ -35,12 +35,30 @@ namespace TechReturners.Tasks
 
             List<string> result = new List<string>();
 
-            string aWord = "";
+            if ( str == "" ) {
+                return result;
+            }
             
             for (int i = 0; i < str.Length; i++) {
+                string aWord = "";
                 char c = Char.ToUpper(str[i]);
-                aWord = str.Substring(0,i-1) + c +str.Substring(i+1);
-                result.Add(aWord);
+                if ( Char.IsWhiteSpace(c) ) {
+                    // do nothing as it's not part of the wave or word
+                }
+                else {
+                    if ( i == 0 ) {
+                        aWord = Char.ToString(c);
+                    }
+                    else if ( i == 1 ) {
+                        aWord = str.Substring(0,1) + c;
+                    }
+                    else {
+                        aWord = str.Substring(0,i) + c;
+                    }
+                    aWord += str.Substring(i+1);
+// Console.WriteLine("aWord = " + aWord);
+                    result.Add(aWord);
+                }
             }
 
             return result;
