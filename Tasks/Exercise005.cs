@@ -27,7 +27,24 @@ namespace TechReturners.Tasks
     {
         public static List<string> Wave(string str)
         {
-            throw new NotImplementedException();
+            // assume that we ignore whitespace as part of he wave
+            // We read through the string as an array would be easiest to manipulate
+            // as basically, the idea is to make the index'th letter of the loop upper case
+            // so if a word is 10 letters long, there will be up to 10 words returned, 
+            // with each successive letter being upper case in the words sequence
+
+            List<string> result = new List<string>();
+
+            string aWord = "";
+            
+            for (int i = 0; i < str.Length; i++) {
+                char c = Char.ToUpper(str[i]);
+                aWord = str.Substring(0,i-1) + c +str.Substring(i+1);
+                result.Add(aWord);
+            }
+
+            return result;
+            // throw new NotImplementedException();
         }
     }
 }
