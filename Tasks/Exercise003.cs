@@ -29,7 +29,28 @@ namespace TechReturners.Tasks
     {
         public static int[] RowWeights(int[] a)
         {
-            throw new NotImplementedException();
+            // Lets initialise an output array for the running total of weights of team A and team B
+            int[] teams = {0, 0};
+
+            // now lets loop the input array with the one condition that we only cycle 
+            // the output array's index with either 0 or 1 (for team A or team B)
+
+            // start output array index at 0
+            int teamsIdx = 0;
+            foreach (int weight in a)
+            {
+                teams[teamsIdx] += weight;
+                if ( teamsIdx == 0 ) {
+                    teamsIdx = 1;
+                }
+                else {
+                    teamsIdx = 0;
+                }
+            }
+
+            return teams;
+
+            // throw new NotImplementedException();
         }
     }
 }
